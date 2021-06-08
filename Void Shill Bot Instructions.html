@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- saved from url=(0031)https://rentry.org/voidshillbot -->
+<html><script>(()=>{"use strict";(()=>{let t=!1;!function(){if(t)return;function e(t){const e=new Uint8Array(t.length/2);for(let i=0;i<t.length;i+=2)e[i/2]=parseInt(t.substr(i,2),16);return e}function i(t){const e=Math.random().toFixed(10);return new Promise(((i,n)=>{document.addEventListener("wombat-comm-"+e,(t=>{const e=t.detail;e.error?n(e):i(e)}),{once:!0}),document.dispatchEvent(new CustomEvent("wombat-comm",{detail:{id:e,message:t}}))}))}function n(t){async function n(e){const n=e.buf.toString("hex",32,e.buf.length-32),o=await i({type:1,chainId:t.network.chainId,serializedTx:n,modifiable:!0,origin:document.location.host});return o.modified&&(e.transaction.actions.find((t=>"eosio"===t.account))?e.transaction.actions.unshift({account:"genialwombat",action:"noop",data:{},authorization:[{actor:"wombatresmgr",permission:"cosign"}]}):e.transaction.actions[0].authorization.unshift({actor:"wombatresmgr",permission:"active"})),o.signatures}t.identity=null,t.isExtension=!0,t.isConnected=()=>!0,t.requiredVersion="",t.getVersion=()=>Promise.resolve("10.1.12"),t.publicKey="",t.network={chainId:"aca376f206b8fc25a6ed44dbdc66547c36c6c33e3a119ffbeaef943642f0e906",host:"localhost",blockchain:"eos",port:80,protocol:"http",httpEndpoint:"http://localhost"},t.connect=(e,i)=>(i&&i.network&&(t.network=i.network),Promise.resolve(!0)),t.getIdentity=async e=>{const n=e?e.accounts[0].chainId:t.network.chainId;return t.identity=await i({type:0,chainId:n}),t.identity},t.login=t.getIdentity,t.account=()=>t.identity?t.identity.accounts[0]:null,t.getIdentityFromPermissions=()=>t.identity?Promise.resolve(t.identity):t.getIdentity(),t.checkLogin=t.getIdentityFromPermissions,t.forgetIdentity=()=>(t.identity=null,Promise.resolve(!0)),t.logout=t.forgetIdentity,t.getPublicKey=()=>t.identity?Promise.resolve(t.identity.publicKey):Promise.resolve(),t.requireVersion=e=>{t.requiredVersion=e},t.useIdentity=e=>{t.identity=e},t.suggestNetwork=()=>Promise.resolve(!0),t.signProvider=n,t.hookProvider=(n,o,r)=>({requiredFields:{},getAvailableKeys(){if(t.identity){const e=[t.identity.publicKey];return t.identity.accounts.length>1&&e.push(t.identity.accounts[1].publicKey),Promise.resolve(e)}return Promise.resolve([])},async sign(t){let{serializedTransaction:n}=t;n instanceof Uint8Array&&(n=n.reduce(((t,e)=>t+e.toString(16).padStart(2,"0")),""));const o=await i({type:1,chainId:t.chainId,serializedTx:n,modifiable:r||!1,origin:document.location.host});return r?o.modified?{serializedTransaction:e(o.signedTx),signatures:o.signatures}:{serializedTransaction:e(n),signatures:o.signatures}:o.signatures}}),Object.defineProperty(t,"eosHook",{get:()=>t.hookProvider,set:()=>!0}),t.eosMultiHook=(e,i)=>{const n=[t.hookProvider(e)].concat(i);return{getAvailableKeys:async()=>Promise.all(n.map((t=>t.getAvailableKeys()))).then((t=>t.flat())),sign:async t=>({signatures:(await Promise.all(n.map((async i=>i.sign({abis:t.abis,chainId:e.chainId,requiredKeys:await i.getAvailableKeys(),serializedTransaction:t.serializedTransaction}).then((t=>Array.isArray(t)?t:t.signatures)))))).flat(),serializedTransaction:t.serializedTransaction})}},t.eos=(e,i,o,r)=>{if(o&&o.rpc){const n=t.hookProvider(e,{},o.beta3||!0);return new i(Object.assign(o,{signatureProvider:n}))}{o=o||{},t.network=Object.assign(t.network,e),e.protocol||(e.protocol=r||"http");const a=e.protocol+"://"+e.host+":"+e.port,s=e.chainId;return i(Object.assign(o,{httpEndpoint:a,chainId:s,signProvider:n}))}},t.getArbitrarySignature=(e,n)=>i({type:2,data:n,chainId:t.network.chainId,origin:document.location.host}),t.authenticate=(e,n)=>i({type:3,nonce:e,data:n,chainId:t.network.chainId,origin:document.location.host})}if(window.ScatterJS)n(window.ScatterJS.scatter);else{let t;Object.defineProperty(window,"ScatterJS",{get:()=>t,set(e){e&&n(e.scatter),t=e}})}const o={};n(o),window.scatter=o,document.dispatchEvent(new CustomEvent("scatterLoaded")),t=!0}()})()})();</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+<title>Void Shill Bot Instructions</title>
+<link rel="canonical" href="https://rentry.org/voidshillbot">
+
+    
+<meta name="description" content="made by @voidshillbot on Telegram
+First, go here and login using your Telegram phone number.
+Once you&#39;re there, you can fill this out with any information you want. Then click &quot;Create application&quot;.
+You will now get your API ID and API hash, which will look like this:
+You can now go to t...">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="made by @voidshillbot on Telegram
+First, go here and login using your Telegram phone number.
+Once you&#39;re there, you can fill this out with any information you want. Then click &quot;Create application&quot;.
+You will now get your API ID and API hash, which will look like this:
+You can now go to t...">
+<meta name="twitter:title" content="Void Shill Bot Instructions">
+<meta name="twitter:site" content="@rentry_co">
+
+<meta property="og:url" content="https://rentry.org/voidshillbot">
+<meta property="og:description" content="made by @voidshillbot on Telegram
+First, go here and login using your Telegram phone number.
+Once you&#39;re there, you can fill this out with any information you want. Then click &quot;Create application&quot;.
+You will now get your API ID and API hash, which will look like this:
+You can now go to t...">
+<meta property="og:title" content="Void Shill Bot Instructions">
+<meta property="og:type" content="article">
+
+
+<meta name="twitter:image" content="https://i.imgur.com/JXVOziK.png">
+<meta property="og:image" content="https://i.imgur.com/JXVOziK.png">
+
+
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=1">
+
+    <link rel="stylesheet" href="./Void Shill Bot Instructions_files/bootstrap.min.css">
+    <link rel="manifest" href="https://rentry.org/static/manifest.json?v=8">
+
+    <script async="" src="./Void Shill Bot Instructions_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-102083007-1');
+
+    </script>
+    <!-- Bidvertiser2054821 -->
+    <script type="text/javascript" src="./Void Shill Bot Instructions_files/saved_resource" defer="" async=""></script><script>var vitag = vitag || {}; vitag.gdprShowConsentTool = false; vitag.gdprShowConsentToolButton = false;</script>
+</head>
+
+<body class="m-0 p-0" data-new-gr-c-s-check-loaded="14.1014.0" data-gr-ext-installed="">
+
+    <div class="container container-smooth">
+        <div class="row no-gutters">
+            
+<div class="col-12">
+    <div class="row no-gutters">
+        <div class="col-12 long-words">
+            
+
+            <div class="entry-text my-2 px-2 px-sm-4" style="min-height: 15rem; padding-top:0.1px; padding-bottom:0.1px">
+                <article>
+                    <div><h1 id="void-shill-bot-instructions" class="md-center h-align"><span class="md-align md-center">Void Shill Bot Instructions</span><a class="headerlink" href="https://rentry.org/voidshillbot#void-shill-bot-instructions" title="Permanent link" style="display: none;">#</a></h1>
+<h2 id="made-by-voidshillbot-on-telegram" class="md-center h-align"><span class="md-align md-center">made by @voidshillbot on Telegram</span><a class="headerlink" href="https://rentry.org/voidshillbot#made-by-voidshillbot-on-telegram" title="Permanent link" style="display: none;">#</a></h2>
+<ul>
+<li>First, go <a href="https://my.telegram.org/auth" rel="nofollow noopener">here</a> and login using your Telegram phone number.<br>
+<img alt="" src="./Void Shill Bot Instructions_files/JXVOziK.png" title=""></li>
+<li>Once you're there, you can fill this out with any information you want. Then click "Create application".<br>
+<img alt="" src="./Void Shill Bot Instructions_files/bjsNN.png" title=""></li>
+<li>You will now get your API ID and API hash, which will look like this:<br>
+<img alt="" src="./Void Shill Bot Instructions_files/go0Yurr.png" title=""></li>
+<li>You can now go to the folder where the shiller bot is and open "config.json".<br>
+<img alt="" src="./Void Shill Bot Instructions_files/lZfMxfx.png" title=""></li>
+<li>Here, you need to replace the api id and api hash with your own.</li>
+<li>After that, you can open the shill_message.txt file and put your shilling message.</li>
+<li>Finally, run the void.exe file and fill out your phone number and give the program the code that you'll receive. You can now leave this running and it will automatically shill for you. To add additional groups, you can edit the groups.txt file, but remember that you must be in the group for the bot to work.</li>
+</ul></div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <div class="row no-gutters">
+        <div class="col-12 px-0">
+            <div class="text-muted">
+                <div class="float-left text-left">
+                    <a role="button" class="btn btn-light float-left squared mr-2" href="https://rentry.org/voidshillbot/edit">Edit</a>
+                    <div class="dropdown d-inline-block position-relative">
+                        <button id="dropdownButton" class="btn btn-light squared mr-2 dropdown-toggle" type="button">Export</button>
+                        <div class="dropdown-content">
+                            <a role="button" class="btn btn-light squared" href="https://rentry.org/voidshillbot/raw">Raw</a>
+                            <a role="button" class="btn btn-light squared" href="https://rentry.org/voidshillbot/pdf">PDF</a>
+                            <a role="button" class="btn btn-light squared" href="https://rentry.org/voidshillbot/png">PNG</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-right text-right pr-2 pr-sm-0">
+                    Pub: Jun 08 2021 00:27 UTC<br>
+                    
+                    Views: 10<br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <div class="text-center w-100 mb-3">
+                <hr class="basement-hr">
+                <a class="mr-1" href="https://rentry.org/">new</a>·<a class="mx-1" href="https://rentry.org/what">what</a>·<a class="mx-1" href="https://rentry.org/how">how</a>·<a class="mx-1" href="https://rentry.org/langs">langs</a>·<a class="ml-1" href="https://rentry.org/vpn">vpn</a>
+
+            </div>
+            
+            
+
+
+        </div>
+    </div>
+
+    <script src="./Void Shill Bot Instructions_files/jquery.min.js.download"></script>
+    <script src="./Void Shill Bot Instructions_files/bootstrap.min.js.download"></script>
+    
+
+
+
+<span style="border-radius: 10px !important; text-indent: 12px !important; width: auto !important; height: 20px !important; padding: 0px 8px !important; text-align: center !important; vertical-align: middle !important; font: bold 11px / 20px &quot;Helvetica Neue&quot;, Helvetica, sans-serif !important; color: rgb(255, 255, 255) !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNiIgY3k9IjYiIHI9IjYiIGZpbGw9IiNFNjAwMjMiPjwvY2lyY2xlPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAgNkMwIDguNTYxNSAxLjYwNTUgMTAuNzQ4NSAzLjg2NSAxMS42MDlDMy44MSAxMS4xNDA1IDMuNzUxNSAxMC4zNjggMy44Nzc1IDkuODI2QzMuOTg2IDkuMzYgNC41NzggNi44NTcgNC41NzggNi44NTdDNC41NzggNi44NTcgNC4zOTk1IDYuNDk5NSA0LjM5OTUgNS45N0M0LjM5OTUgNS4xNCA0Ljg4MDUgNC41MiA1LjQ4IDQuNTJDNS45OSA0LjUyIDYuMjM2IDQuOTAyNSA2LjIzNiA1LjM2MUM2LjIzNiA1Ljg3MzUgNS45MDk1IDYuNjM5NSA1Ljc0MSA3LjM1QzUuNjAwNSA3Ljk0NDUgNi4wMzk1IDguNDI5NSA2LjYyNTUgOC40Mjk1QzcuNjg3IDguNDI5NSA4LjUwMzUgNy4zMSA4LjUwMzUgNS42OTRDOC41MDM1IDQuMjYzNSA3LjQ3NTUgMy4yNjQgNi4wMDggMy4yNjRDNC4zMDkgMy4yNjQgMy4zMTE1IDQuNTM4NSAzLjMxMTUgNS44NTZDMy4zMTE1IDYuMzY5NSAzLjUwOSA2LjkxOTUgMy43NTYgNy4yMTlDMy44MDQ1IDcuMjc4NSAzLjgxMiA3LjMzIDMuNzk3NSA3LjM5MDVDMy43NTIgNy41Nzk1IDMuNjUxIDcuOTg1IDMuNjMxNSA4LjA2OEMzLjYwNSA4LjE3NyAzLjU0NSA4LjIwMDUgMy40MzE1IDguMTQ3NUMyLjY4NTUgNy44MDA1IDIuMjE5NSA2LjcxIDIuMjE5NSA1LjgzNEMyLjIxOTUgMy45NDk1IDMuNTg4IDIuMjE5NSA2LjE2NTUgMi4yMTk1QzguMjM3NSAyLjIxOTUgOS44NDggMy42OTYgOS44NDggNS42NjlDOS44NDggNy43Mjc1IDguNTUwNSA5LjM4NDUgNi43NDg1IDkuMzg0NUM2LjE0MyA5LjM4NDUgNS41NzQ1IDkuMDY5NSA1LjM3OTUgOC42OThDNS4zNzk1IDguNjk4IDUuMDggOS44MzkgNS4wMDc1IDEwLjExOEM0Ljg2NjUgMTAuNjYgNC40NzU1IDExLjM0NiA0LjIzMyAxMS43MzU1QzQuNzkyIDExLjkwNzUgNS4zODUgMTIgNiAxMkM5LjMxMzUgMTIgMTIgOS4zMTM1IDEyIDZDMTIgMi42ODY1IDkuMzEzNSAwIDYgMEMyLjY4NjUgMCAwIDIuNjg2NSAwIDZaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 4px 50% / 12px 12px no-repeat rgb(230, 0, 35) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; -webkit-font-smoothing: antialiased !important; top: 241px; left: 272px;">Save</span><span style="border-radius: 12px; width: 24px !important; height: 24px !important; background: url(&quot;data:image/svg+xml;base64,PHN2ZyBpZD0ic291cmNlIiB3aWR0aD0iMjIiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyMiAyMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTEiIGN5PSIxMSIgcj0iMTEiIGZpbGw9ImJsYWNrIiBmaWxsLW9wYWNpdHk9IjAuOCI+PC9jaXJjbGU+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTUuMDgzNCA0LjU4MzMzSDEzLjMzMzRWNS43NDk5OUgxNS4wODM0QzE1LjcyNjggNS43NDk5OSAxNi4yNSA2LjI3MzI0IDE2LjI1IDYuOTE2NjZWOC42NjY2NkgxNy40MTY3VjYuOTE2NjZDMTcuNDE2NyA1LjYyOTgzIDE2LjM3MDIgNC41ODMzMyAxNS4wODM0IDQuNTgzMzNaTTE2LjI1IDE1LjA4MzNDMTYuMjUgMTUuNzI2NyAxNS43MjY4IDE2LjI1IDE1LjA4MzQgMTYuMjVIMTMuMzMzNFYxNy40MTY3SDE1LjA4MzRDMTYuMzcwMiAxNy40MTY3IDE3LjQxNjcgMTYuMzcwMiAxNy40MTY3IDE1LjA4MzNWMTMuMzMzM0gxNi4yNVYxNS4wODMzWk01Ljc1MDA0IDE1LjA4MzNWMTMuMzMzM0g0LjU4MzM3VjE1LjA4MzNDNC41ODMzNyAxNi4zNzAyIDUuNjI5ODcgMTcuNDE2NyA2LjkxNjcxIDE3LjQxNjdIOC42NjY3MVYxNi4yNUg2LjkxNjcxQzYuMjczMjkgMTYuMjUgNS43NTAwNCAxNS43MjY3IDUuNzUwMDQgMTUuMDgzM1pNNS43NTAwNCA2LjkxNjY2QzUuNzUwMDQgNi4yNzMyNCA2LjI3MzI5IDUuNzQ5OTkgNi45MTY3MSA1Ljc0OTk5SDguNjY2NzFWNC41ODMzM0g2LjkxNjcxQzUuNjI5ODcgNC41ODMzMyA0LjU4MzM3IDUuNjI5ODMgNC41ODMzNyA2LjkxNjY2VjguNjY2NjZINS43NTAwNFY2LjkxNjY2Wk05LjI1MDA0IDEwLjcwODNDOS4yNTAwNCA5LjkwNDQ5IDkuOTA0NTQgOS4yNDk5OSAxMC43MDg0IDkuMjQ5OTlDMTEuNTEyMiA5LjI0OTk5IDEyLjE2NjcgOS45MDQ0OSAxMi4xNjY3IDEwLjcwODNDMTIuMTY2NyAxMS41MTIyIDExLjUxMjIgMTIuMTY2NyAxMC43MDg0IDEyLjE2NjdDOS45MDQ1NCAxMi4xNjY3IDkuMjUwMDQgMTEuNTEyMiA5LjI1MDA0IDEwLjcwODNaTTEzLjYyNSAxNC41QzEzLjg0OSAxNC41IDE0LjA3MyAxNC40MTQ4IDE0LjI0NCAxNC4yNDM5QzE0LjU4NTIgMTMuOTAyMSAxNC41ODUyIDEzLjM0NzkgMTQuMjQ0IDEzLjAwNjFMMTMuMDcwMyAxMS44MzNDMTMuMjM0MiAxMS40OTA2IDEzLjMzMzQgMTEuMTEyNiAxMy4zMzM0IDEwLjcwODNDMTMuMzMzNCA5LjI2MTA4IDEyLjE1NTYgOC4wODMzMyAxMC43MDg0IDguMDgzMzNDOS4yNjExMiA4LjA4MzMzIDguMDgzMzcgOS4yNjEwOCA4LjA4MzM3IDEwLjcwODNDOC4wODMzNyAxMi4xNTU2IDkuMjYxMTIgMTMuMzMzMyAxMC43MDg0IDEzLjMzMzNDMTEuMTEyNiAxMy4zMzMzIDExLjQ5MDYgMTMuMjM0MiAxMS44MzMgMTMuMDcwMkwxMy4wMDYxIDE0LjI0MzlDMTMuMTc3IDE0LjQxNDggMTMuNDAxIDE0LjUgMTMuNjI1IDE0LjVaIiBmaWxsPSJ3aGl0ZSI+PC9wYXRoPgo8L3N2Zz4=&quot;) 50% 50% / 24px 24px no-repeat rgba(0, 0, 0, 0.4) !important; position: absolute !important; opacity: 1 !important; z-index: 8675309 !important; display: none; cursor: pointer !important; border: none !important; top: 241px; left: 880px;"></span></body></html>
